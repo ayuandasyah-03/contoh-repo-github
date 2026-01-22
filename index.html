@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portofolio Saya</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+body{min-height:100vh;background:linear-gradient(135deg,#ff9a9e,#fad0c4,#fbc2eb);color:#333}
+
+/* NAVBAR FINAL SUPER ESTETIK */
+.navbar{
+  position:fixed;top:0;left:0;width:100%;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:18px 60px;z-index:1000;
+  background:rgba(255,255,255,.45);
+  backdrop-filter:blur(20px);
+  box-shadow:0 10px 30px rgba(0,0,0,.15);
+  animation:navDown 1.2s ease
+}
+.nav-logo{font-size:1.6rem;font-weight:700;background:linear-gradient(90deg,#ff6f91,#845ec2);-webkit-background-clip:text;color:transparent}
+.nav-menu a{margin-left:25px;text-decoration:none;font-weight:600;color:#333;position:relative;transition:.3s}
+.nav-menu a::after{content:"";position:absolute;left:0;bottom:-6px;width:0;height:3px;background:linear-gradient(90deg,#ff6f91,#845ec2);transition:.4s;border-radius:5px}
+.nav-menu a:hover::after{width:100%}
+.nav-menu a:hover{color:#ff6f91}
+.nav-github{padding:8px 18px;border-radius:25px;background:linear-gradient(135deg,#667eea,#764ba2);color:white!important}
+
+header{height:100vh;display:flex;align-items:center;justify-content:center;text-align:center}
+.hero img{
+  width:210px;
+  height:297px; /* rasio A4 */
+  object-fit:cover;
+  border-radius:25px;
+  background:white;
+  padding:10px;
+  box-shadow:0 25px 60px rgba(0,0,0,.25);
+  border:5px solid transparent;
+  background-image:
+    linear-gradient(white, white),
+    linear-gradient(135deg,#ff9a9e,#fad0c4,#fbc2eb,#a1c4fd);
+  background-origin:border-box;
+  background-clip:content-box, border-box;
+  margin-bottom:30px;
+  animation:float 4.5s ease-in-out infinite
+}
+.hero h1{font-size:2.8rem;font-weight:700}
+.hero p{font-size:1.2rem;margin-top:10px}
+
+section{padding:120px 10%}
+.card{
+  position:relative;
+  background:linear-gradient(135deg,#ffe6f2,#f3e8ff,#e8f6ff);
+  border-radius:35px;
+  padding:50px;
+  margin-bottom:70px;
+  box-shadow:0 25px 60px rgba(0,0,0,.18);
+  overflow:hidden;
+  animation:fadeUp 1.3s ease
+}
+
+/* shimmer effect */
+.card::before{
+  content:"";
+  position:absolute;
+  top:0;left:-100%;
+  width:100%;height:100%;
+  background:linear-gradient(120deg,transparent,rgba(255,255,255,.5),transparent);
+  animation:shimmer 3.5s infinite;
+}
+
+@keyframes shimmer{
+  0%{left:-100%}
+  50%{left:100%}
+  100%{left:100%}
+}
+h2{text-align:center;font-size:2.4rem;margin-bottom:30px}
+
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:20px}
+.skill{background:linear-gradient(135deg,#a1c4fd,#c2e9fb);padding:22px;border-radius:20px;text-align:center;font-weight:600;animation:pop 1.5s ease infinite alternate}
+
+/* KONTAK & GITHUB RAPI */
+.contact-title{font-size:1.6rem;font-weight:600;margin-bottom:15px;text-align:center}
+.contact-box{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:30px}
+.contact-item{
+  background:linear-gradient(135deg,#ffd6e8,#e7d7ff,#d6f0ff);
+  padding:35px;
+  border-radius:28px;
+  text-align:center;
+  box-shadow:0 18px 40px rgba(0,0,0,.18);
+  transition:.4s
+}
+.contact-item:hover{transform:translateY(-12px) scale(1.05)}
+.github-btn{display:inline-block;margin-top:15px;padding:14px 35px;border-radius:35px;background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;text-decoration:none;font-weight:600;animation:glow 2s infinite alternate}
+
+footer{text-align:center;padding:35px;background:rgba(255,255,255,.45)}
+
+@keyframes float{0%{transform:translateY(0)}50%{transform:translateY(-15px)}100%{transform:translateY(0)}}
+@keyframes pop{from{transform:scale(1)}to{transform:scale(1.1)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
+@keyframes glow{from{box-shadow:0 0 15px #8e2de2}to{box-shadow:0 0 35px #4a00e0}}
+@keyframes navDown{from{opacity:0;transform:translateY(-40px)}to{opacity:1;transform:translateY(0)}}
+
+/* STIKER IMUT */
+.sticker{
+  position:absolute;
+  font-size:2.2rem;
+  animation:floatSticker 6s ease-in-out infinite;
+  pointer-events:none;
+}
+.s1{top:20%;left:8%;animation-duration:5s}
+.s2{top:30%;right:10%;animation-duration:7s}
+.s3{bottom:25%;left:12%;animation-duration:6s}
+.s4{bottom:20%;right:15%;animation-duration:8s}
+
+@keyframes floatSticker{
+  0%{transform:translateY(0) rotate(0deg)}
+  50%{transform:translateY(-20px) rotate(10deg)}
+  100%{transform:translateY(0) rotate(0deg)}
+}
+
+/* SPARKLE CURSOR */
+.sparkle{
+  position:absolute;
+  width:10px;
+  height:10px;
+  background:radial-gradient(circle,#d11a48,#ffb6c1,#ff6f91);
+  border-radius:50%;
+  pointer-events:none;
+  animation:spark 0.8s ease-out forwards;
+  z-index:9999;
+}
+@keyframes spark{
+  from{transform:scale(1);opacity:1}
+  to{transform:scale(2.5);opacity:0}
+}
+  50%{transform:translateY(-20px) rotate(10deg)}
+  100%{transform:translateY(0) rotate(0deg)}
+}to{opacity:1;transform:translateY(0)}}
+</style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-logo">MyPortofolio</div>
+    <div class="nav-menu">
+      <a href="#home">Home</a>
+      <a href="#about">Tentang</a>
+      <a href="#skill">Skill</a>
+      <a href="#contact">Kontak</a>
+      <a href="#github" class="nav-github">GitHub</a>
+    </div>
+  </nav>
+
+  <header id="home">
+    <div class="hero">
+      <img src="foto.jpeg" alt="Foto Profil">
+      <h1>Halo, Saya Ayuanda Syahtilana</h1>
+      <p>Pelajar Jurusan TKJ | Web Developer Pemula</p>
+    </div>
+
+    <div class="bubble" style="left:10%; animation-duration: 12s;"></div>
+    <div class="bubble" style="left:30%; animation-duration: 9s;"></div>
+    <div class="bubble" style="left:50%; animation-duration: 11s;"></div>
+    <div class="bubble" style="left:70%; animation-duration: 8s;"></div>
+    <div class="bubble" style="left:90%; animation-duration: 10s;"></div>
+      
+    <!-- STIKER LUCU IMUT -->
+    <div class="sticker s1">🌸</div>
+    <div class="sticker s2">✨</div>
+    <div class="sticker s3">💖</div>
+    <div class="sticker s4">🫧</div>
+  </header>
+
+  <section id="about">
+  <style>
+    #about .card{background:linear-gradient(135deg,#ffe0f0,#f0e5ff,#e0f4ff)}
+    #skill .card{background:linear-gradient(135deg,#fff1c1,#ffd6e0,#e0f7fa)}
+    #contact .card{background:linear-gradient(135deg,#e0ffe9,#e0f0ff,#f3e8ff)}
+  </style>
+    <div class="card">
+      <h2>Tentang Saya</h2>
+      <p>
+        Saya adalah seorang pelajar dari jurusan <b>Teknik Komputer dan Jaringan (TKJ)</b>
+        yang tertarik dengan dunia web development, desain estetik, dan animasi modern.
+        Saya suka belajar hal baru dan membuat website yang menarik ✨
+      </p>
+    </div>
+
+    <div class="card" id="skill">
+      <h2>Skill</h2>
+      <div class="skills">
+        <div class="skill">HTML</div>
+        <div class="skill">CSS</div>
+        <div class="skill">JavaScript</div>
+        <div class="skill">Networking</div>
+        <div class="skill">UI/UX</div>
+      </div>
+    </div>
+
+    <div class="card" id="contact">
+      <h2>Kontak & GitHub</h2>
+      <p>Email: ayuandasyah@gmail.com</p>
+      <p>Instagram: ti_ssy01</p>
+      <a class="github-btn" href="https://github.com/namakamu" target="_blank">Kunjungi GitHub Saya</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Portofolio Saya • Dibuat dengan ❤️</p>
+  </footer>
+
+<!-- SPARKLE EFFECT -->
+<script>
+  document.addEventListener('mousemove', e => {
+    const sparkle = document.createElement('span');
+    sparkle.className = 'sparkle';
+    sparkle.style.left = e.pageX + 'px';
+    sparkle.style.top = e.pageY + 'px';
+    document.body.appendChild(sparkle);
+    setTimeout(() => sparkle.remove(), 800);
+  });
+</script>
+
+</body>
+</html>
